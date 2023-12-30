@@ -24,6 +24,8 @@ exports('startProgressBar', startProgressBar)
 
 RegisterNetEvent('jsx_progressBar:client:startProgressBar', startProgressBar)
 
-RegisterCommand('test', function()
-    startProgressBar('Hola', 6000)
-end)
+if GetConvarInt('jsx_progressBar:test', 0) == 1 then
+    RegisterCommand('test', function()
+        startProgressBar('Hola', 6000)
+    end)
+end
