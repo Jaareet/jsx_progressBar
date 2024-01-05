@@ -5,12 +5,12 @@
 
 ## Using Export :
 ```diff
-exports.jsx_progressBar:startProgressBar(text, timeouts)
+exports.jsx_progressBar:startProgressBar(text, timeouts, callback)
 ```
 
 ## Using Events :
 ```diff
-TriggerEvent('jsx_progressBar:client:startProgressBar', text, timeouts)
+TriggerEvent('jsx_progressBar:client:startProgressBar', text, timeouts, callback)
 ```
 
 <div align='center'>
