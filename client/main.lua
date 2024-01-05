@@ -1,23 +1,30 @@
-local isProgressBarOpened = false
+local isProgressBarOpened, progressBarCallback = false, nil
 
 RegisterNUICallback('finish', function()
     if (isProgressBarOpened) then
+        local userCallback = progressBarCallback
+        progressBarCallback = nil
+        userCallback(true)
+
         isProgressBarOpened = false
     end
 end)
 
-function startProgressBar(text, timeouts)
+function startProgressBar(text, timeouts, cb)
     if (isProgressBarOpened) then
         return
     end
 
     isProgressBarOpened = true
-
+    
     SendNUIMessage({
         type = 'startProgressBarControls',
         text = text,
         timeouts = timeouts,
     })
+    if (cb) then
+        progressBarCallback = cb
+    end
 end
 
 exports('startProgressBar', startProgressBar)
