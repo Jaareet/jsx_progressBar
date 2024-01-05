@@ -1,7 +1,5 @@
-@font-face {
-    font-family: GoBold;
-    src: url('https://cdn.jaareet.es/fonts/gobold.otf');
-}
+@import url('https://fonts.cdnfonts.com/css/gobold');
+
 * {
     font-family: GoBold;
     user-select: none;
